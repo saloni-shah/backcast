@@ -1,36 +1,33 @@
 var VideoListView = Backbone.View.extend({
   
-  el : '#videoList',
+  el : '.list',
 
   initialize: function() {
+    this.collection.on('all', this.render, this);
     /* Backbone events bubble up through collections,
      * so monitoring a model in a collection is easy! */
     // this.collection.on('change:votes', this.render, this);
-    this.render();
+    // this.render();
   },
-  
-  // render: function() {
-  //   console.log("hgfsj");
-  //   // this.$el.children().detach();
-  //   this.$el.html(this.template());
-  //   return this;
-  // },
+
   render: function() {
 
-    var html = [
-      '<ul>',
-      '</ul>',
-      '<span class="votes">',
-        // The total number of votes
-        this.$el.append(this.collection.map((video) => $('<div>' + video.get('kind') + '</div>'))),
-        '</span>'
-    ].join('');
+    // this.collection.model.forEa
+    // debugger;
+    // debugger;
+    let count = 1;
+    console.log(this.collection.length);
+    this.collection.models.forEach(video => {
+      console.log(count++);
+      // debugger;
 
-    this.$el.html(html);
+      new VideoListEntryView(video).render();
+      // this.$el.append($('<div>' + video.get('kind') + '</div>'));
+    });
 
-    return this.$el;
+    return this;
   },
 
-  template: templateURL('src/templates/videoList.html')
+  // template: templateURL('src/templates/videoList.html')
 
 });
