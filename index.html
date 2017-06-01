@@ -27,10 +27,18 @@
   <script src="src/views/videoList.js"></script>
   <script src="src/views/videoListEntry.js"></script>
   <script src="src/views/videoPlayer.js"></script>
-
+  <script src="src/data/exampleVideoData.js"></script>
   <script>
     backboneReady(() => {
-      new AppView();
+new AppView();
+      window.exampleVideoData.map((videoObj) => new Video(videoObj));
+      let videoCollection = new Videos(window.exampleVideoData);
+      var videoListView = new VideoListView({ collection: videoCollection });
+      
+      //$('body').append(videoListView.render());
+
+
+      
     });
   </script>
 
