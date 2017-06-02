@@ -17,42 +17,22 @@
     </h5>
   </div>
 
+  <script src="src/data/exampleVideoData.js"></script>
 
   <script src="src/models/video.js"></script>
   <script src="src/collections/videos.js"></script>
   <script src="src/lib/templateUrl.js"></script>
 
+  
   <script src="src/views/app.js"></script>
   <script src="src/views/search.js"></script>
   <script src="src/views/videoList.js"></script>
   <script src="src/views/videoListEntry.js"></script>
   <script src="src/views/videoPlayer.js"></script>
-  <script src="src/data/exampleVideoData.js"></script>
+
   <script>
     backboneReady(() => {
-     new AppView();
-//      window.exampleVideoData.map((videoObj) => new Video(videoObj));
-      let videoCollection = new Videos(window.exampleVideoData);
-//      var videoListView = new VideoListView({ collection: videoCollection });
-//
-//      $('body').append(videoListView.render().$el);
-
-
-
-     let div = $(".video-list-entry-title")
-      debugger;
-       div.click()
-
-      $(function(){
-        var movies = new Movies(movieData);
-        new AppView({el: $('#main'), collection: movies}).render();
-      });
-
-
-
-
-
-      
+      new AppView();
     });
   </script>
 
